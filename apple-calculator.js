@@ -103,7 +103,6 @@ $(document).ready(function() {
     
     $('button').bind('click',function() {
         var func = $(this).html();
-        console.log(func)
         switch (func) {
             case "C":
                 var expression = $('#expression');
