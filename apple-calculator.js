@@ -1,5 +1,5 @@
 function calculate(text){
-    var pattern = /\d*\.?\d+|\+|\-|\*|\/|\(|\)|\w*\(/g;
+    var pattern = /\d*\.?\d+|\+|\−|\×|\÷|\(|\)|\w*\(/g;
     var tokens = text.match(pattern);
     try{
         var val = evaluate(tokens);
@@ -19,9 +19,9 @@ function read_operand(tokens){
             if(tokens.shift() != ')') throw "mismatched";
             return num;
         }
-        else if(num == '-'){
+        else if(num == '−'){
             var next = tokens.shift();
-            tokens.unshift('(','0','-',next,')');
+            tokens.unshift('(','0','−',next,')');
             num = read_operand(tokens);
             return num;
         }
@@ -59,13 +59,13 @@ function evaluate(tokens){
         while(tokens.length > 0){
             if(tokens[0] == ')') return value;
             operator = tokens.shift();
-            if(['+','-','*','/'].indexOf(operator) < 0) throw "unrecognized operator";
+            if(['+','−','×','÷'].indexOf(operator) < 0) throw "unrecognized operator";
             if(tokens.length === 0) throw "missing operand";
             temp = read_term(tokens);
             if(operator === '+'){
                 value = value+temp;
             } 
-            if(operator === '-'){
+            if(operator === '−'){
                 value = value-temp;
             }
         }
@@ -79,40 +79,52 @@ function read_term(tokens){
     while(tokens.length >0){
         if(tokens[0] == ')') return value;
         operator = tokens.shift();
-        if(['+','-'].indexOf(operator) > -1){
+        if(['+','−'].indexOf(operator) > -1){
             tokens.unshift(operator);
             break;
         }
         temp = read_operand(tokens);
-        if(operator === '*'){
+        if(operator === '×'){
             value = value*temp;
         }
-        if(operator === '/'){
+        if(operator === '÷'){
             value = value/temp;
         }
     }
     return value;
 }
 
-function setup_button(this){
-
-}
-
-$(document).ready(function(){
-   $('.tallButton').bind('click', function() {
-       var expression = $('#expression');
-       var input = expression.text().trim();
-       expression.text(String(calculate(input)));
-   });
-   /*$('.squareButton').bind('click', function(){
-       var expression = $('#expression');
-       var input = $('.squareButton').text();
-       expression.text(input);
-       var input = $('.squareButton').text();
-       expression.text(input);
-   })*/
-    // $('.squareButton').each(function(){
-      //'this' refers to the <div> with class calculator
-    //  setup_button(this);
-   //}); 
+$(document).ready(function() {
+    $('.tallButton').bind('click', function(){
+        var expression = $('#expression');
+        var input = expression.text().trim();
+        expression.text(String(calculate(input)));
+    });
+    
+    $('button').bind('click',function() {
+        var func = $(this).html();
+        console.log(func)
+        switch (func) {
+            case "MC":
+                break;
+            case "M+":
+                break;
+            case "M-":
+                break;
+            case "MR":
+                break;
+            case "C":
+                var expression = $('#expression');
+                expression.text("");
+                break;
+            case "±":
+                break;
+            case "=":
+                break;
+            default:
+                var expression = $('#expression');
+                var input = expression.text().trim();
+                expression.text(input.concat(func));
+        }
+    });
 });
