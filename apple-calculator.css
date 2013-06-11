@@ -1,0 +1,61 @@
+#calcBody {
+    background: linear-gradient(to bottom, #DFDFDF, #AEAEAE);
+    height: 520px;
+    width: 422px;
+    position: absolute;
+}
+
+#screen {
+    height: 90px;
+    width: 374px;
+    background-color: #EFFACD;
+    position: relative;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 2px solid gray;
+}
+
+#screen div{
+    position: relative;
+    text-align: right;
+    margin-right: 45px;
+    margin-top: 3px;
+    font-size: 26px;
+    font-family: Betabet Sans-Regular,Lucida Sans EF Roman, Verdana;
+}
+
+.squareButton{
+    width: 92px;
+    height: 52px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #F0F0F0, #D4D4D4);
+    font-size: 24px;
+    border: 1px solid gray;
+}
+
+#row{
+    margin-left:15px;
+}
+
+.wideButton{
+    width: 190px;
+    height: 50px;
+    background: linear-gradient(to bottom, #F0F0F0, #D4D4D4);
+    font-size: 24px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.tallButton{
+    width: 88px;
+    height: 115px;
+    background: linear-gradient(to bottom, #F0F0F0, #D4D4D4);
+    font-size: 24px;
+    border-radius: 10px;
+    float: right;
+    position: relative;
+    margin-right: 27px;
+    border: 1px solid gray;
+}
