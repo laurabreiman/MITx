@@ -18,10 +18,10 @@
     border: 2px rgb(175, 181, 146);
     border-style: solid;
     box-shadow:
-        0 5px 4px 0px rgb(241, 241, 241),
-        0 -3px 4px 0px rgb(128, 128, 128),
-        -2px 0 4px 0px rgb(175, 175, 175),
-        2px 0 4px 0px rgb(175, 175, 175);
+        0 5px 4px 0 rgb(241, 241, 241),
+        0 -3px 4px 0 rgb(128, 128, 128),
+        -2px 0 4px 0 rgb(175, 175, 175),
+        2px 0 4px 0 rgb(175, 175, 175);
 }
 
 #screen div{
@@ -36,8 +36,8 @@
 button{
     box-shadow:
         0 1.5px 2px #F9F9F9,
-        inset 0px 5px 5px 0px #F1F1F1,
-        inset 0.5px -4.5px 5px 0px #5E5E5E;
+        inset 0 5px 5px 0 #F1F1F1,
+        inset 0.5px -4.5px 5px 0 #5E5E5E;
     background-color: #D4D4D4;
     font-size: 24px;
     border-radius: 10px;
@@ -62,6 +62,14 @@ button:active{
 
 #row{
     margin-left:17px;
+}
+
+#expression{
+    height: 85px;
+    width:365px;
+    overflow-y:auto;
+    word-wrap:break-word;
+
 }
 
 .wideButton{
