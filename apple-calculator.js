@@ -11,17 +11,6 @@ function calculate(text){
     }
 }
 
-function setup_calc(div){
-    var input = $('<input></input>',{type: "text", size: 50});
-    var output = $('<div class="output"></div>');
-    var button = $('<button>Calculate</button>');
-    button.bind("click", function(){
-        output.text(String(calculate(input.val())));
-    });
-    
-    $(div).append(input,button,output);
-}
-
 function read_operand(tokens){
     try{
         var num = tokens.shift();
@@ -105,9 +94,25 @@ function read_term(tokens){
     return value;
 }
 
+function setup_button(this){
+
+}
+
 $(document).ready(function(){
-   $('.calculator').each(function(){
+   $('.tallButton').bind('click', function() {
+       var expression = $('#expression');
+       var input = expression.text().trim();
+       expression.text(String(calculate(input)));
+   });
+   /*$('.squareButton').bind('click', function(){
+       var expression = $('#expression');
+       var input = $('.squareButton').text();
+       expression.text(input);
+       var input = $('.squareButton').text();
+       expression.text(input);
+   })*/
+    // $('.squareButton').each(function(){
       //'this' refers to the <div> with class calculator
-      setup_calc(this);
-   }); 
+    //  setup_button(this);
+   //}); 
 });

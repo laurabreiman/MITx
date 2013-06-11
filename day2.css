@@ -1,0 +1,45 @@
+/* Stylesheet for the calculator */
+body{
+    background-color: #E8E8E8;
+}
+h1 {
+    font-style: normal;
+    font-size: 60;
+    font-family: sans-serif;
+    color: #303030;
+}
+
+.calculator{
+    font-size: 16pt;
+}
+.calculator button:active{
+    background-color: black;
+}
+.calculator button{
+    font-size: 16pt;
+    padding: 11px;
+    color: #000066;
+    background-color: #E1D2FF;
+    border: 2px solid black;
+    border-radius: 2px;
+    margin: 20px;
+}
+.calculator input[type="text"]{
+    font-size: 16pt;
+    padding: 10px;
+    width: 400px;
+    text-align: center;
+    border: 1px solid gray;
+    background-color: #F1F1F1;
+}
+.calculator input[type="text"]:focus{
+    border: 5px solid gray;
+}
+
+.calculator .output{
+    background-color: #EFEAFF;
+    border: 2px solid gray;
+    border-radius: 10px;
+    width: 510px;
+    padding: 15px;
+}

@@ -3,6 +3,7 @@
     height: 520px;
     width: 422px;
     position: absolute;
+    border: 1px solid gray;
 }
 
 #screen {
@@ -14,7 +15,13 @@
     margin-top: 10px;
     margin-bottom: 25px;
     border-radius: 10px;
-    border: 2px solid gray;
+    border: 2px rgb(175, 181, 146);
+    border-style: solid;
+    box-shadow:
+        0 5px 4px 0px rgb(241, 241, 241),
+        0 -3px 4px 0px rgb(128, 128, 128),
+        -2px 0 4px 0px rgb(175, 175, 175),
+        2px 0 4px 0px rgb(175, 175, 175);
 }
 
 #screen div{
@@ -26,36 +33,45 @@
     font-family: Betabet Sans-Regular,Lucida Sans EF Roman, Verdana;
 }
 
-.squareButton{
+button{
+    box-shadow:
+        0 1.5px 2px #F9F9F9,
+        inset 0px 5px 5px 0px #F1F1F1,
+        inset 0.5px -4.5px 5px 0px #5E5E5E;
+    background-color: #D4D4D4;
+    font-size: 24px;
+    border-radius: 10px;
+    border: 1px solid gray;
     width: 92px;
     height: 52px;
     margin-bottom: 10px;
-    border-radius: 10px;
-    background: linear-gradient(to bottom, #F0F0F0, #D4D4D4);
-    font-size: 24px;
-    border: 1px solid gray;
+}
+
+button:hover{
+    background-color: #D6C5D5;
+    box-shadow:
+        0 1.5px 2px #F9F9F9,
+        inset 0.5px -4.5px 5px 0px #5E5E5E;
+}
+
+button:active{
+    background-color: #939393;
+    box-shadow:
+        inset 0px 5px 5px 0px #5E5E5E;
 }
 
 #row{
-    margin-left:15px;
+    margin-left:17px;
 }
 
 .wideButton{
     width: 190px;
     height: 50px;
-    background: linear-gradient(to bottom, #F0F0F0, #D4D4D4);
-    font-size: 24px;
-    border-radius: 10px;
-    border: 1px solid gray;
 }
 .tallButton{
     width: 88px;
-    height: 115px;
-    background: linear-gradient(to bottom, #F0F0F0, #D4D4D4);
-    font-size: 24px;
-    border-radius: 10px;
+    height: 114px;
     float: right;
     position: relative;
     margin-right: 27px;
-    border: 1px solid gray;
 }
