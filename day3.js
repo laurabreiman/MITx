@@ -99,16 +99,45 @@ function test_text(){
     ctxt.textAlign = "center";
     ctxt.textBaseline = "middle";
     
-    ctxt.fillText("Hello World!",100,100);
+    ctxt.fillText("Sup World",100,100);
 }
+
 
 function test_mouse(){
     var JQcanvas = $('#test:first');
     var DOMcanvas = JQcanvas[0];
     var ctxt = DOMcanvas.getContext('2d');
     
+    var bg_image = $("<canvas></canvas>")[0];
+    bg_image.width = 200;
+    bg_image.height = 200;
+    var bctx = bg_image.getContext('2d');
+    bctx.fillStyle = "#DDDDDD";
+    bctx.fillRect(0,0,200,200);
+    bctx.fillStyle = "#FF00FF";
+    bctx.fillRect(10,10,100,100);
+    
+    ctxt.drawImage(bg_image,0,0);
+    
     JQcanvas.on("mousemove",function(event){
         var mx = event.pageX;
         var my = event.pageY;
+        
+        var offset = JQcanvas.offset(); // {left:..., top:...,}
+        mx = Math.round(mx - offset.left);
+        my = Math.round(my - offset.top);
+
+        ctxt.drawImage(bg_image,0,0);
+        
+        ctxt.beginPath();
+        ctxt.moveTo(mx-10,my);
+        ctxt.lineTo(mx+10,my);
+        ctxt.moveTo(mx,my-10);
+        ctxt.lineTo(mx,my+10);
+        
+        ctxt.strokeStyle = "black";
+        ctxt.lineWidth = 1;
+        ctxt.stroke();
+        
     })
 }
