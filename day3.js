@@ -50,6 +50,11 @@ function test_smiley() {
     gradient.addColorStop("0.5","#FFE100");
     gradient.addColorStop("1.0","#FFA600");
     
+    var gradient2=ctxt.createLinearGradient(0,0,DOMcanvas.width,0);
+    gradient2.addColorStop("0","#0000D3");
+    gradient2.addColorStop("0.15","#3F00CD");
+    gradient2.addColorStop(".5","#3B8ED5");
+    
     ctxt.beginPath();
     ctxt.arc(100,100,75,0,2*Math.PI);
     ctxt.fillStyle = gradient;
@@ -67,7 +72,7 @@ function test_smiley() {
     
     ctxt.beginPath();
     ctxt.arc(75,75,5,0,2*Math.PI);
-    ctxt.fillStyle = "#3A8DD4";
+    ctxt.fillStyle = gradient2; 
     ctxt.fill();
     
     ctxt.beginPath();
@@ -78,7 +83,7 @@ function test_smiley() {
     
     ctxt.beginPath();
     ctxt.arc(125,75,5,0,2*Math.PI);
-    ctxt.fillStyle = "#3A8DD4";
+    ctxt.fillStyle = gradient2;
     ctxt.fill();
     
     ctxt.beginPath();

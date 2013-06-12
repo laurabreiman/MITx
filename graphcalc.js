@@ -18,8 +18,6 @@ var graphcalc = (function () {
             
             var xMinValue = calculator.evaluate(treeExp, {x:min});
             var xMaxValue = calculator.evaluate(treeExp, {x:max});
-            console.log(xMinValue, xMaxValue);
-            console.log(canvas.height, canvas.width);
             var xVals = [];
             var yVals = [];
             
@@ -54,15 +52,21 @@ var graphcalc = (function () {
                 return (y-yMin)/(yStepSize);
             })
             
+            var minLabel = $('.minLabel');
+            minLabel.text(String(min));
+            var maxLabel = $('.maxLabel');
+            maxLabel.text(String(max));
+            
             var ctxt = canvas.getContext('2d');
+            ctxt.clearRect(0,0,canvas.width,canvas.height);
             ctxt.beginPath();
             ctxt.moveTo(0,(canvas.height-yMapped[0]));
-            console.log(yMapped.length);
-            for(var i=1; i<yMapped.length;i++){
-                ctxt.lineTo(i,(canvas.height-yMapped[i]));
+            
+            for(var j=1; j<yMapped.length;j++){
+                ctxt.lineTo(j,(canvas.height-yMapped[j]));
             }
             ctxt.lineWidth=2;
-            ctxt.strokeStyle = "#222223";
+            ctxt.strokeStyle = "#FF0000";
             ctxt.stroke();
             
         }
@@ -99,13 +103,15 @@ var graphcalc = (function () {
          var expLabel = $("<span>Expression:</span>", {class: "label"});
          var minLabel = $("<span>Min x:</span>", {class: "label"});
          var maxLabel = $("<span>Max x:</span>", {class: "label"});
+         var xAxisLabels = $("<div></div");
+         $(xAxisLabels).append($("<span></span>",{class: "minLabel"}),$("<span></span>",{class: "maxLabel"}))
          $(row1).append(expLabel);
          $(row1).append(expInput);
          $(row2).append(minLabel);
          $(row2).append(minInput);
          $(row2).append(maxLabel);
          $(row2).append(maxInput);
-         $(calcBody).append(DOMcanvas,row1,row2,plot)
+         $(calcBody).append(DOMcanvas,xAxisLabels,row1,row2,plot)
         $(div).append(calcBody);
         
         $(plot).bind('click',function() {
@@ -113,7 +119,7 @@ var graphcalc = (function () {
         })
     }
     exports.setup = setup;
-   
+    
     return exports;
 }());
 // setup all the graphcalc divs in the document
