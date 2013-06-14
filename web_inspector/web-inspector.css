@@ -1,0 +1,82 @@
+
+
+.selected {
+    border: 7px solid red;
+}
+
+.inspector {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 315px;
+  background-color: white;
+  z-index: 1000;
+  padding: 0;
+}
+
+.inspector .tray {
+  width: 100%;
+}
+
+.inspector .handle {
+  height: 15px;
+  position: relative;
+  top: 300px;
+  background-color: #A2122F;
+}
+
+.inspector .text-editor {
+  margin-left: 2%;
+  width: 58%;
+  border: 2px solid #2C3B63;
+  margin: 20px 1% 20px 1%;
+  height: 250px;
+  float: left;
+}
+
+.inspector .property-editor {
+  width: 34%;
+  margin: 20px 1% 20px 1%;
+  height: 250px;
+  border: 2px solid #2C3B63;
+  float: right;
+}
+
+.inspector .property-editor .node-lookup {
+  border-bottom: 1px solid #2C3B63;
+}
+
+.inspector .property-editor .node-lookup .selector:before {
+  content: "Selector: ";
+}
+
+.inspector .property-editor .node-lookup .selector {
+  width: 150px;
+  margin-left: 10px;
+}
+
+.inspector .property-editor .node-lookup .nth:before {
+  content: "Index: ";
+}
+
+.inspector .property-editor .node-lookup .nth {
+  width: 50px;
+  margin-left: 10px;
+}
+
+.inspector .property-editor .node-lookup button {
+  float: right;
+}
+
+.inspector .property-editor .property-list {
+    height: 100%;
+    font-size: 12pt;
+    color: black;
+}
+
+table tr td{
+    padding-left: 10px;
+    color: black;
+    
+}
