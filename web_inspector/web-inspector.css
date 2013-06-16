@@ -1,4 +1,6 @@
-
+#wrapper{
+    top: 315px;
+}
 
 .selected {
     border: 7px solid red;

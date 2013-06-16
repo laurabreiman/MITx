@@ -13,6 +13,7 @@ var Inspector = function($) {
     var mouseIsOn = false;
     var destroySelection = function() {
         $('.selected').removeClass('selected');
+        currentSelection = null;
     }
     var select = function(node) {
         node.addClass("selected");
@@ -48,6 +49,7 @@ var Inspector = function($) {
     };
     
     var searchBySelector = function() {
+        destroySelection();
         var nthBox = root.find(".nth");
         var nthStr = nthBox.val();
         var nth = parseInt(nthStr)
@@ -59,6 +61,8 @@ var Inspector = function($) {
         var selectorStr = selectorBox.val();
         var selection = $(selectorStr).eq(nth);
         var html = selection.html();
+        
+        select(selection);
         
         var textEditor = root.find(".text-editor");
         textEditor.empty();
@@ -139,7 +143,10 @@ var Inspector = function($) {
             else{
                 mouseOff();
             }
-        })
+        });
+        root.find('.text-editor').on("keyup",function(){
+            currentSelection.html(root.find('.text-editor'  ).val());
+        });
     };
                                         
         
