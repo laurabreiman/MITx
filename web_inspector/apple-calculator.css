@@ -1,0 +1,146 @@
+#calcBody {
+    background: linear-gradient(to bottom, #DFDFDF, #AEAEAE);
+    height: 520px;
+    width: 422px;
+    position: absolute;
+    border: 1px solid gray;
+    border-right: none;
+}
+
+#screen {
+    height: 90px;
+    width: 374px;
+    background-color: #EFFACD;
+    position: relative;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 2px rgb(175, 181, 146);
+    border-style: solid;
+    box-shadow:
+        0 5px 4px 0 rgb(241, 241, 241),
+        0 -3px 4px 0 rgb(128, 128, 128),
+        -2px 0 4px 0 rgb(175, 175, 175),
+        2px 0 4px 0 rgb(175, 175, 175);
+}
+
+#screen div{
+    position: relative;
+    text-align: right;
+    margin-right: 45px;
+    margin-top: 3px;
+    font-size: 26px;
+    font-family: Betabet Sans-Regular,Lucida Sans EF Roman, Verdana;
+}
+
+button{
+    box-shadow:
+        0 1.5px 2px #F9F9F9,
+        inset 0 5px 5px 0 #F1F1F1,
+        inset 0.5px -4.5px 5px 0 #5E5E5E;
+    background-color: #D4D4D4;
+    font-size: 24px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 92px;
+    height: 52px;
+    margin-bottom: 10px;
+}
+
+button:hover{
+    background-color: #D6C5D5;
+    box-shadow:
+        0 1.5px 2px #F9F9F9,
+        inset 0.5px -4.5px 5px 0px #5E5E5E;
+}
+
+button:active{
+    background-color: #939393;
+    box-shadow:
+        inset 0px 5px 5px 0px #5E5E5E;
+}
+
+#row{
+    margin-left:17px;
+}
+
+#expression{
+    height: 85px;
+    width:365px;
+    overflow-y:auto;
+    word-wrap:break-word;
+
+}
+
+.graphcalc{
+    position:inline;
+    margin-left: 422px;
+    background: linear-gradient(to bottom, #DFDFDF, #AEAEAE);
+    height: 515px;
+    width: 400px;
+    border: 1px solid gray;
+}
+
+.wideButton{
+    width: 190px;
+    height: 50px;
+}
+
+.expression {
+    width: 279px;
+}
+
+.graphcalc input {
+    margin: 10px;
+    
+}
+
+.label {
+    position: relative;
+    margin: 10px;
+}
+
+span{
+    margin: 6px;
+}
+
+.graphcalc button{
+    text-align: center;
+    position: relative;
+    margin-left: 160px;
+    height: 40px;
+    width: 50px;
+    font-size: 12pt;
+}
+
+canvas {
+    position: relative;
+    margin: 10px;
+    background-color: #EFFACD;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+    border-left: none;
+    box-shadow:
+        0 5px 4px 0 rgb(241, 241, 241),
+        0 -3px 4px 0 rgb(128, 128, 128),
+        -2px 0 4px 0 rgb(175, 175, 175),
+        2px 0 4px 0 rgb(175, 175, 175);
+}
+.minLabel{
+    margin-left: 10px;
+}
+.maxLabel{
+    float: right;
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+.graphcalc .body {
+    background: linear-gradient(to bottom, #DFDFDF, #AEAEAE);
+    height: 519px;
+    width: 400px;
+    border: 1px solid gray;
+    border-left: none;
+}
