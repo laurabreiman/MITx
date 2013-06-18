@@ -15,7 +15,7 @@ function setup(div) {
          var minLabel = $("<span>Min x:</span>", {class: "label"});
          var maxLabel = $("<span>Max x:</span>", {class: "label"});
          var xAxisLabels = $("<div></div");
-         var graphimg = null;
+
          $(xAxisLabels).append($("<span></span>",{class: "minLabel"}),$("<span></span>",{class: "maxLabel"}))
          $(row1).append(expLabel);
          $(row1).append(expInput);
@@ -26,15 +26,38 @@ function setup(div) {
          $(calcBody).append(DOMcanvas,xAxisLabels,row1,row2,plot)
         $(div).append(calcBody);
         
+        
+        var currentExp = null;
+        var treeExp = null;
+        var currentMin = null;
+        var currentMax = null;
+        var xMinValue = null;
+        var xMaxValue = null;
+        var yMin = null;
+        var yMax = null;
+        var graphimg = null;
+        var yStepSize = null;
+    
         $(plot).bind('click',function() {
-            graph(DOMcanvas, $('.expression').val().replace(/\xD7/g,'*').replace(/\xF7/g,'/'), $('.min').val(), $('.max').val());
+            currentExp = $('.expression').val().replace(/\xD7/g,'*').replace(/\xF7/g,'/');
+            treeExp = calculator.parse(currentExp);
+            currentMin = $('.min').val();
+            currentMax = $('.max').val();
+            xMinValue = calculator.evaluate(treeExp, {x:currentMin});
+            xMaxValue = calculator.evaluate(treeExp, {x:currentMax});
+            yMin = xMinValue;
+            yMax = xMinValue;
+    
+            graph(DOMcanvas, currentExp, currentMin, currentMax);
             graphimg = DOMcanvas.getContext('2d').getImageData(0,0,DOMcanvas.width,DOMcanvas.height);
         })
         
         JQcanvas.mousemove(function(event){
             var xCoord = event.pageX - JQcanvas.offset().left;
-            var yCoord = (event.pageY - JQcanvas.offset().top );
- 
+            
+            var yCoord = calculator.evaluate(treeExp, {x:xCoord});
+            //var yCoord = (event.pageY - JQcanvas.offset().top );
+            
             var ctxt = DOMcanvas.getContext('2d');
             
             ctxt.clearRect(0,0,JQcanvas.width,JQcanvas.height);
@@ -49,10 +72,6 @@ function setup(div) {
             ctxt.lineTo(xCoord,325);
             ctxt.stroke()
         });
-    }
-    
-    function mouseAxis(canvas){
-        
     }
     
     function plot(fx){
@@ -127,7 +146,6 @@ $(document).ready(function() {
     function graph(canvas,expression,min,max) {
         //… your code to plot the value of expression as x varies from x1 to x2 …
         try{
-            var treeExp = calculator.parse(expression);
             min = parseFloat(min);
             max = parseFloat(max);
             
@@ -138,9 +156,6 @@ $(document).ready(function() {
                 throw "Invalid Range";
             }
 
-            
-            var xMinValue = calculator.evaluate(treeExp, {x:min});
-            var xMaxValue = calculator.evaluate(treeExp, {x:max});
             var xVals = [];
             var yVals = [];
             
@@ -148,8 +163,8 @@ $(document).ready(function() {
             
             var stepSize = (max-min)/(w)
             
-            var yMin = xMinValue;
-            var yMax = xMinValue;
+            yMin = xMinValue;
+            yMax = xMinValue;
             
             for(var i=min; i<max; i+= stepSize){
                 var xVal = i;
@@ -165,7 +180,7 @@ $(document).ready(function() {
                 }
             }
 
-            var yStepSize = (yMax-yMin)/(canvas.height)
+            yStepSize = (yMax-yMin)/(canvas.height);
             
             
             xVals.push(max);

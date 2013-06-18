@@ -4,7 +4,7 @@ var quiz = (function () {
     
     var useParse = 1; //don't use Parse: 0, use Parse: 1
     
-    var questions = [{"questionText": "What is Laura's favorite vegetable?", "options": ["Carrot", "Kale", "Broccoli", "Brussel Sprouts"], "solutionIndex": 2}, {"questionText": "What is Laura's favorite Pokemon?", "options": ["Beedrill", "Abra", "Pikachu", "Porygon"], "solutionIndex": 1}];
+    var questions = [{"questionText": "What is Laura's favorite vegetable?", "options": ["Carrot", "Kale", "Broccoli", "Brussel Sprouts"], "solutionIndex": 2}, {"questionText": "What is Laura's favorite Pokemon?", "options": ["Beedrill", "Abra", "Pikachu", "Porygon"], "solutionIndex": 1}, {"questionText": "Who is Laura's favorite person?", "options": ["Danielle 'dsmo' Penny", "Albert Einstein", "Gandhi", "Louis Tomlinson", "God"], "solutionIndex": 0}];
     //structure with... questionText, solutions, options
     //[ {'text of question','solution','options'] ... ]
     
