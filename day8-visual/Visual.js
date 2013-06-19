@@ -55,11 +55,25 @@ $('.transition').on('click', function(){
         ungroup();
     }
 });
+
+$('.line-draw').on('click', function(){
+    var index = $('.line-number').val()
+    try{
+    drawLine(index);
+    }
+    catch(err){
+        console.log("Uncool number");
+    }
+});
                   
 function drawLine(index){
     if($('.transition').hasClass('selected')){
         line.y(function(d) { return y_scale(d.y); });
         line.x(function(d,i) { return x_scale(i)+(index/4)*x_scale.rangeBand(); })
+    }
+    else{
+        line.x(function(d,i) { return x_scale(i)+x_scale.rangeBand()/2; })
+        line.y(function(d) { return y_scale(d.y + d.y0); });
     }
     chart.append("path")
           .datum(stacked_data[index])
