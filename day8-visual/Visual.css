@@ -3,12 +3,12 @@
     background-color: #AFAFAF;
 }
 
-.chart div {
-    background-color: #4C4C4C;
-    color: #A8D1E7;
-    text-align:right;
+.chart rect {
+    fill: #4C4C4C;
+    stroke: #A8D1E7;
+}
+
+.chart text {
+    fill: #fff;
     font: 10px sans-serif;
-    padding: 3px;
-    margin: 1px;
-    border: 1px dotted black;
 }
