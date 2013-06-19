@@ -5,10 +5,18 @@
 
 .chart rect {
     fill: #4C4C4C;
-    stroke: #A8D1E7;
+    stroke: #212121;
 }
 
 .chart text {
     fill: #fff;
     font: 10px sans-serif;
+}
+
+.chart line {
+    stroke: #ccc;
+}
+
+.chart .y-scale-label{
+    fill: #495961;
 }
