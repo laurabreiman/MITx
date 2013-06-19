@@ -20,10 +20,10 @@ var y_group_max = d3.max(stacked_data, function(layer){
 
 var x_scale = d3.scale.ordinal().domain(d3.range(data[0].length)).rangeBands([0,chart_width]);
 var y_scale = d3.scale.linear().domain([0,y_stack_max]).range([chart_height,0]);
+
 var color_scale = d3.scale.linear()
     .domain([0, stacked_data.length-1])
-    .range(["#aad", "#556"]);
-
+    .range(['#DCBC0F','#FF0000']);
 
 var chart = d3.select(".chart-container").append("svg").attr("class","chart").attr("height", outer_height).attr("width",outer_width).append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
@@ -35,11 +35,44 @@ var layer_groups = chart.selectAll(".layer").data(stacked_data).enter().append("
 
 var rects = layer_groups.selectAll('rect').data(function(d){return d}).enter().append('rect').attr("x",function(d,i){return x_scale(i);}).attr("y", function(d){return y_scale(d.y0+d.y)}).attr("width", x_scale.rangeBand()).attr("height", function(d){ return y_scale(d.y0) - y_scale(d.y0+d.y); }).style("fill", function(d, i, j) { return color_scale(j); });
 
+var line = d3.svg.line()
+    .x(function(d,i) { return x_scale(i)+x_scale.rangeBand()/2; })
+    .y(function(d) { return y_scale(d.y + d.y0); });
+
+
 //chart.selectAll('rect').data(data).enter().append('rect').attr("x",function(d,i){return x_scale(i);}).attr("y", y_scale).attr("width", x_scale.rangeBand()).attr("height", function(d){ return chart_height-y_scale(d); });
 
 //chart.selectAll(".bar-label").data(data).enter().append("text").attr("class", "bar-label").attr("x",function(d,i){return x_scale(i) + x_scale.rangeBand()/2;}).attr("y", function(d){return y_scale(d)+margin.top/4;}).attr("dy","0.7em").attr("text-anchor", "middle").text(function(d){return d;});
+    
+$('.transition').on('click', function(){
+    $(this).toggleClass('selected');
+    if($(this).hasClass('selected')){
+        chart.selectAll("path").remove();
+        goGrouped()
+    }
+    else{
+        chart.selectAll("path").remove();
+        ungroup();
+    }
+});
+                  
+function drawLine(index){
+    if($('.transition').hasClass('selected')){
+        line.y(function(d) { return y_scale(d.y); });
+        line.x(function(d,i) { return x_scale(i)+(index/4)*x_scale.rangeBand(); })
+    }
+    chart.append("path")
+          .datum(stacked_data[index])
+          .attr("class", "line")
+          .attr("d", line);
+}
 
 function goGrouped(){
     y_scale.domain([0,y_group_max]);
-    rects.transition().duration(1000).delay(function(d,i){return i*20;}).attr("x", function(d, i, j){ return x_scale(i)+x_scale.rangeBand()/stacked_data.length*j}).attr('height', function(d){return chart_height - y_scale(d.y)}).attr('width',x_scale.rangeBand()/stacked_data.length).transition().attr('y', function(d){return y_scale(d.y)});
+    rects.transition().duration(1000).delay(function(d,i){return i*20;}).attr("x", function(d, i, j){ return x_scale(i)+x_scale.rangeBand()/stacked_data.length*j}).attr('width',x_scale.rangeBand()/stacked_data.length).transition().attr('y', function(d){return y_scale(d.y)}).attr('height', function(d){return chart_height - y_scale(d.y)});
+}
+
+function ungroup(){
+    y_scale.domain([0,y_stack_max]);
+    rects.transition().duration(1000).delay(function(d,i){return i*20;}).attr("height", function(d){ return y_scale(d.y0) - y_scale(d.y0+d.y); }).attr("y", function(d){return y_scale(d.y0+d.y)}).transition().attr("x",function(d,i){return x_scale(i);}).attr("width", x_scale.rangeBand());
 }

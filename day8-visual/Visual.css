@@ -20,3 +20,17 @@
 .chart .y-scale-label{
     fill: #495961;
 }
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.selected{
+    background-color: gray;
+}
+
+.transition{
+    background-color: #CACACA;
+}
