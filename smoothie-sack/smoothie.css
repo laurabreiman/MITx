@@ -1,0 +1,102 @@
+body {
+    font-family: serif;
+}
+
+.connectedSortable { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    width: 100%;
+    float:left;
+    margin-right:10px;
+    border: 2px solid black;
+}
+
+.connectedSortable li { 
+    float: left; 
+    width: 100px; 
+    height: 130px; 
+    text-align: center;
+    margin: 2px;
+}
+
+.fruit-tile {
+    width: 100px;
+    height: 100px;
+}
+
+.fruit-label {
+    font-size: 12px;
+    font-family: sans-serif;
+    line-height:15px;
+    text-align:center;
+}
+
+.redSlider .ui-slider-range { 
+    background: #ef2929; 
+}
+
+.greenSlider .ui-slider-range { 
+    background: #8ae234; 
+}
+.blueSlider .ui-slider-range { 
+    background: #729fcf; 
+}
+
+.swatch {
+    height:100px;
+}
+
+.ui-slider-handle:focus {
+    outline:0;
+}
+
+.ui-state-active {
+    background:#dadada !important;
+}
+
+.leftSliderLabel {
+    text-align:right;
+}
+.applySpan {
+    text-align:right;
+}
+
+.title {
+    text-align:center;
+}
+
+.chart {
+    background-color: none;
+}
+
+.chart rect {
+    fill: white;
+    stroke: #212121;
+}
+
+.chart text {
+    fill: black;
+    font: 9px sans-serif;
+}
+
+.chart line {
+    stroke: #ccc;
+}
+
+.chart .y-scale-label{
+    fill: #495961;
+}
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.transition{
+    background-color: #CACACA;
+}
+.selected{
+    background-color: gray;
+}
