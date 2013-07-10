@@ -23,7 +23,7 @@ var y_scale = d3.scale.linear().domain([0,y_stack_max]).range([chart_height,0]);
 
 var color_scale = d3.scale.linear()
     .domain([0, stacked_data.length-1])
-    .range(['#DCBC0F','#FF0000']);
+    .range(['#0D66FF','#AA13F3']);
 
 var chart = d3.select(".chart-container").append("svg").attr("class","chart").attr("height", outer_height).attr("width",outer_width).append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
 

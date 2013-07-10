@@ -27,10 +27,9 @@
   stroke-width: 1.5px;
 }
 
-.selected{
-    background-color: gray;
-}
-
 .transition{
     background-color: #CACACA;
+}
+.selected{
+    background-color: gray;
 }
