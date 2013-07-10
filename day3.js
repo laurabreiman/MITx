@@ -46,9 +46,9 @@ function test_smiley() {
     var ctxt = DOMcanvas.getContext('2d');
     
     var gradient=ctxt.createLinearGradient(0,0,DOMcanvas.width,0);
-    gradient.addColorStop("0","yellow");
-    gradient.addColorStop("0.5","#FFE100");
-    gradient.addColorStop("1.0","#FFA600");
+    gradient.addColorStop("0","blue");
+    gradient.addColorStop("0.5","magenta");
+    gradient.addColorStop("1.0","red");
     
     var gradient2=ctxt.createLinearGradient(0,0,DOMcanvas.width,0);
     gradient2.addColorStop("0","#0000D3");
@@ -58,7 +58,7 @@ function test_smiley() {
     ctxt.beginPath();
     ctxt.arc(100,100,75,0,2*Math.PI);
     ctxt.fillStyle = gradient;
-    ctxt.strokeStyle = "black";
+    ctxt.strokeStyle = gradient2;
     ctxt.lineWidth=7;
     ctxt.fill();
     ctxt.stroke();

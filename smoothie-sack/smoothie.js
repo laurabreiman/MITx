@@ -254,7 +254,7 @@ var smoothieBlender = (function() {
     function graph(){
         $(".chart-container").empty();
         var maxPrice = $("#hungerSlider").slider("value");
-        var outer_width = parseInt($(".blendSmoothieButton").css("width"));
+        var outer_width = parseInt($(".statusSpan").css("width"))-38;
         var outer_height = 300;
         
         var margin = { top: outer_width/8, right: outer_width/8, bottom: outer_width/8, left: outer_width/8 }
@@ -312,7 +312,7 @@ var smoothieBlender = (function() {
         var applySpan = $("<div class='span2 applySpan well'></div>");
         var fruitsSpan = $("<div class='span4 fruitsSpan well'></div>");
         var smoothieSpan = $("<div class='span4 smoothieSpan well'></div>");
-        var statusSpan = $("<div class='span2 well'></div>");
+        var statusSpan = $("<div class='span2 well statusSpan'></div>");
         addApply(applySpan);
         addStatus(statusSpan);
         dragAndDropRow.append(applySpan, fruitsSpan, smoothieSpan, statusSpan);

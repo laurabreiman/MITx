@@ -1,0 +1,34 @@
+.chart {
+    background-color: none;
+}
+
+.chart rect {
+    fill: white;
+    stroke: #212121;
+}
+
+.chart text {
+    fill: black;
+    font: 10px sans-serif;
+}
+
+.chart line {
+    stroke: #ccc;
+}
+
+.chart .y-scale-label{
+    fill: #495961;
+}
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.transition{
+    background-color: #CACACA;
+}
+.selected{
+    background-color: gray;
+}

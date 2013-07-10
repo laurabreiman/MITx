@@ -144,7 +144,7 @@ var Inspector = function($) {
                 mouseOff();
             }
         });
-        root.find('.text-editor').on("keyup",function(){
+        root.find('.text-editor').on("keypress",function(){
             currentSelection.html(root.find('.text-editor'  ).val());
         });
     };
